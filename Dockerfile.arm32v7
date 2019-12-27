@@ -8,10 +8,12 @@ FROM arm32v7/node:lts-alpine
 # Add QEMU
 COPY --from=qemu_arm32 qemu-arm-static /usr/bin
 
-ENV MQTT-HOST 127.0.0.1
-ENV MQTT-PORT 1833
+ARG MQTT_HOST=127.0.0.1
+ARG MQTT_PORT=1833
 
-ENV NODE_ENV production
+ENV $MQTT-HOST
+ENV $MQTT-PORT
+
 WORKDIR /broadlink-mqtt-bridge
 
 COPY . .
