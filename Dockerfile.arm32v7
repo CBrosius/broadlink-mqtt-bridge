@@ -4,18 +4,29 @@ FROM alpine AS qemu_arm32
 ENV QEMU_URL https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/qemu-3.0.0+resin-arm.tar.gz
 RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
 
-FROM arm32v7/node:alpine
+FROM arm32v7/node:lts-alpine
 # Add QEMU
 COPY --from=qemu_arm32 qemu-arm-static /usr/bin
 
+ARG MQTT-HOST="127.0.0.1"
+ARG MQTT-PORT="1833"
+ARG MQTT-USER=""
+ARG MQTT-PASS=""
+
+ENV NODE_ENV production
 WORKDIR /broadlink-mqtt-bridge
 
 COPY . .
 
+RUN apk --update add git less openssh && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /var/cache/apk/*
 RUN npm install
 
+WORKDIR /broadlink-mqtt-bridge
+COPY . .
 ENTRYPOINT ["npm", "start"]
 
-VOLUME [ "/broadlink-mqtt-bridge/config/local.json", "/broadlink-mqtt-bridge/commands" ]
+VOLUME [ "/broadlink-mqtt-bridge/config", "/broadlink-mqtt-bridge/commands" ]
 
-EXPOSE 3000
+EXPOSE 3000 3001
