@@ -1,10 +1,9 @@
+FROM node:lts-alpine
 ARG MQTT_HOST=127.0.0.1
 ARG MQTT_PORT=1833
 
 ENV MQTT_HOST=$MQTT_HOST
 ENV MQTT_PORT=$MQTT_PORT
-
-FROM node:lts-alpine
 
 WORKDIR /broadlink-mqtt-bridge
 
