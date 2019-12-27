@@ -1,0 +1,15 @@
+image: cbrosius/magicmirror:latest
+manifests:
+  - image: cbrosius/magicmirror:latest-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: cbrosius/magicmirror:latest-arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7#  - image: cbrosius/magicmirror:latest-arm64v8
+#    platform:
+#      architecture: arm64
+#      os: linux
+#      variant: v8
