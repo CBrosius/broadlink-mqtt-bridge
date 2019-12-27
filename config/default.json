@@ -3,8 +3,8 @@
     "level": null
   },
   "mqtt": {
-    "host": "192.168.60.200",
-    "port": 1883,
+    "host": $MQTT-HOST,
+    "port": $MQTT-PORT,
     "protocol": "mqtt",
     "subscribeBasePath": "broadlink/"
   },

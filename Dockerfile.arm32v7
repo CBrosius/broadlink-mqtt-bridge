@@ -11,8 +11,8 @@ COPY --from=qemu_arm32 qemu-arm-static /usr/bin
 ARG MQTT_HOST=127.0.0.1
 ARG MQTT_PORT=1833
 
-ENV $MQTT-HOST
-ENV $MQTT-PORT
+ENV MQTT-HOST=$MQTT-HOST
+ENV MQTT-PORT=$MQTT-PORT
 
 WORKDIR /broadlink-mqtt-bridge
 
