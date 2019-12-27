@@ -1,14 +1,15 @@
-image: cbrosius/magicmirror:latest
+image: cbrosius/broadlink-mqtt-bridge:latest
 manifests:
-  - image: cbrosius/magicmirror:latest-amd64
+  - image: cbrosius/broadlink-mqtt-bridge:latest-amd64
     platform:
       architecture: amd64
       os: linux
-  - image: cbrosius/magicmirror:latest-arm32v7
+  - image: cbrosius/broadlink-mqtt-bridge:latest-arm32v7
     platform:
       architecture: arm
       os: linux
-      variant: v7#  - image: cbrosius/magicmirror:latest-arm64v8
+      variant: v7
+#  - image: cbrosius/broadlink-mqtt-bridge:latest-arm64v8
 #    platform:
 #      architecture: arm64
 #      os: linux
