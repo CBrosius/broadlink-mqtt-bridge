@@ -3,6 +3,9 @@ ARG MQTT-PORT="1833"
 ARG MQTT-USER=""
 ARG MQTT-PASS=""
 
+ENV MQTT_HOST=$MQTT-HOST
+ENV MQTT_PORT=$MQTT-PORT
+
 FROM node:lts-alpine
 
 ENV NODE_ENV production
@@ -15,9 +18,6 @@ RUN apk --update add git less openssh && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 RUN npm install
-
-WORKDIR /broadlink-mqtt-bridge
-COPY . .
 
 ENTRYPOINT ["npm", "start"]
 

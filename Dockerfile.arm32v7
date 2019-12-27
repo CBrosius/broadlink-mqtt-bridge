@@ -8,10 +8,10 @@ FROM arm32v7/node:lts-alpine
 # Add QEMU
 COPY --from=qemu_arm32 qemu-arm-static /usr/bin
 
-ARG MQTT-HOST="127.0.0.1"
-ARG MQTT-PORT="1833"
-ARG MQTT-USER=""
-ARG MQTT-PASS=""
+ENV MQTT-HOST 127.0.0.1
+ENV MQTT-PORT 1833
+ENV MQTT-USER
+ENV MQTT-PASS
 
 ENV NODE_ENV production
 WORKDIR /broadlink-mqtt-bridge
@@ -23,8 +23,6 @@ RUN apk --update add git less openssh && \
     rm /var/cache/apk/*
 RUN npm install
 
-WORKDIR /broadlink-mqtt-bridge
-COPY . .
 ENTRYPOINT ["npm", "start"]
 
 VOLUME [ "/broadlink-mqtt-bridge/config", "/broadlink-mqtt-bridge/commands" ]
