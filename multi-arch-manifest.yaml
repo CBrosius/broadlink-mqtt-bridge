@@ -9,8 +9,8 @@ manifests:
       architecture: arm
       os: linux
       variant: v7
-#  - image: cbrosius/broadlink-mqtt-bridge:latest-arm64v8
-#    platform:
-#      architecture: arm64
-#      os: linux
-#      variant: v8
+  - image: cbrosius/broadlink-mqtt-bridge:latest-arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
