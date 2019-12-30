@@ -16,6 +16,12 @@ It has a Admin GUI for helping record IR / RF signals. You will be able with the
 - Broadlink device e.g. RM 3 PRO
 
 
-## ToDo
+## Docker Notes
 
-- Add MQTT-HOST Settings as Environment-Variables
+You are able to set the MQTT_Host and MQTT_Port via Environment-Variables (Default is 127.0.0.1:1833)
+Autodiscovery is only working when Container is running via macvlan 
+
+## ToDo
+Make Autodiscovery working when Container is running in internal Host-network if possible
+
+
