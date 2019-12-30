@@ -28,5 +28,7 @@ VOLUME [ "/broadlink-mqtt-bridge/config", "/broadlink-mqtt-bridge/commands" ]
 
 EXPOSE 3000 3001
 
+RUN chmod +x ./docker-entrypoint.sh
+
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["npm", "start"]
