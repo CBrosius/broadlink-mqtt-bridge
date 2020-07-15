@@ -16,6 +16,7 @@ ENV MQTT_HOST=$MQTT_HOST
 ENV MQTT_PORT=$MQTT_PORT
 ENV TZ=$TZ
 
+
 WORKDIR /broadlink-mqtt-bridge
 
 COPY . .
