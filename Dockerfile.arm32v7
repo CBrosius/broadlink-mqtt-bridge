@@ -10,15 +10,18 @@ COPY --from=qemu_arm32 qemu-arm-static /usr/bin
 
 ARG MQTT_HOST=127.0.0.1
 ARG MQTT_PORT=1833
+ARG TZ=Europe/Berlin
 
 ENV MQTT_HOST=$MQTT_HOST
 ENV MQTT_PORT=$MQTT_PORT
+ENV TZ=$TZ
+
 
 WORKDIR /broadlink-mqtt-bridge
 
 COPY . .
 
-RUN apk --update add git less openssh gettext && \
+RUN apk --update add git less openssh gettext tzdata && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 

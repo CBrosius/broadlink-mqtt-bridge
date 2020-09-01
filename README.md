@@ -21,8 +21,8 @@ It has a Admin GUI for helping record IR / RF signals. You will be able with the
 You are able to set the MQTT_Host and MQTT_Port via Environment-Variables (Default is 127.0.0.1:1833)
 Autodiscovery is only working when Container is running via macvlan 
 
+<<<<<<< HEAD
 ## ChangeLOG
 
 2020/09/01 - Update Sources
-
 
